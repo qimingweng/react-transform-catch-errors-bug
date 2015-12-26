@@ -3,6 +3,7 @@ const path = require('path');
 
 const babelConfig = {
   presets: ['react', 'es2015', 'stage-0'],
+  plugins: ['add-module-exports', 'transform-decorators-legacy'],
   env: {
     development: {
       presets: ['react-hmre'],
@@ -37,6 +38,7 @@ module.exports = {
       babel: __dirname + '/node_modules/babel-loader' + '?' + babelQs,
     },
   },
+  devtool: 'eval-cheap-module-source-map',
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),

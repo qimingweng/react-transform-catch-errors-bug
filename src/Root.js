@@ -1,22 +1,20 @@
 import React from 'react';
-// import {PropTypes} from 'react';
-// import UI from 'edusight-ui';
-// import {EdusightPropTypes} from 'edusight-ui';
-// import ImmutablePropTypes from 'react-immutable-proptypes';
 
-export default class Root extends React.Component {
-  static propTypes = {
-
+const decorator = Component => {
+  return class Decorated extends React.Component {
+    render() {
+      return <Component {...this.props}/>;
+    }
   }
-  render() {
-    const {
-      props: {
+}
 
-      },
-    } = this;
+@decorator
+export default class Root extends React.Component {
+  render() {
+    throw new Error('Intentional Error');
 
     return <div>
-      Hello World, Qiming.
+      Hello World.
     </div>;
   }
 }
