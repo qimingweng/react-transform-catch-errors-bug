@@ -1,3 +1,11 @@
-require('file?name=index.html!./index.html');
+import 'file?name=index.html!./index.html';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Root from './src/Root';
 
-console.log('hello');
+const mountNode = document.getElementById('application');
+
+ReactDOM.render(
+  <Root/>,
+  mountNode,
+);

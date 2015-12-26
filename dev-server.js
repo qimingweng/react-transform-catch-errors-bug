@@ -8,12 +8,15 @@ const compiler = webpack(webpackConfig);
 
 const app = express();
 
+// Use the dev server middleware
 app.use(webpackDevMiddleware(compiler, {
+  noInfo: true,
   stats: {
     colors: true,
   },
 }));
 
+// Use the hot loading middleware
 app.use(webpackHotMiddleware(compiler))
 
 const server = app.listen(9000, () => {
